@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<body>
+<div class="container-fluid mt-5">
+  <form>
+    
+    <!-- Gold area -->
+    <div class="row mt-2">
+      <div class="col">
+        <h2 class="mt-2">Gold</h2>
+      </div>
+      
+      <div class="col">
+        <label for="formGroupExampleInput">2019</label>
+        <input type="text" class="form-control" id="gold2019" placeholder="Gold rate in 2019">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2020</label>
+        <input type="text" class="form-control" id="gold2020" placeholder="Gold rate in 2020">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2021</label>
+        <input type="text" class="form-control" id="gold2021" placeholder="Gold rate in 2021">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2022</label>
+        <input type="text" class="form-control" id="gold2022" placeholder="Gold rate in 2022">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2023</label>
+        <input type="text" class="form-control" id="gold2023" placeholder="Gold rate in 2023">
+      </div>
+    </div>
+<hr>
+    <!-- OIL area -->
+    <div class="row mt-3">
+      <div class="col">
+        <h2 class="mt-2">OIL</h2>
+      </div>
+      
+      <div class="col">
+        <label for="formGroupExampleInput">2019</label>
+        <input type="text" class="form-control" id="oil2019"  placeholder="OIL rate in 2019">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2020</label>
+        <input type="text" class="form-control" id="oil2020" placeholder="OIL rate in 2020">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2021</label>
+        <input type="text" class="form-control" id="oil2021" placeholder="OIL rate in 2021">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2022</label>
+        <input type="text" class="form-control" id="oil2022" placeholder="OIL rate in 2022">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2023</label>
+        <input type="text" class="form-control" id="oil2023" placeholder="OIL rate in 2023">
+      </div>
+    </div>
+<hr>
+    <!-- GAS area -->
+    <div class="row mt-3">
+      <div class="col">
+        <h2 class="mt-2">GAS</h2>
+      </div>
+      
+      <div class="col">
+        <label for="formGroupExampleInput">2019</label>
+        <input type="text" class="form-control" id="gas2019" placeholder="GAS rate in 2019">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2020</label>
+        <input type="text" class="form-control" id="gas2020" placeholder="GAS rate in 2020">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2021</label>
+        <input type="text" class="form-control" id="gas2021" placeholder="GAS rate in 2021">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2022</label>
+        <input type="text" class="form-control" id="gas2022" placeholder="GAS rate in 2022">
+      </div>
+      <div class="col">
+        <label for="formGroupExampleInput">2023</label>
+        <input type="text" class="form-control" id="gas2023" placeholder="GAS rate in 2023">
+      </div>
+    </div>
+  </form>
+</div>
+  <hr>
+<button type="button" class="btn btn-primary btn-lg btn-block" style="width:100%;max-width:100%; margin:20px" onclick="updateChart()">Update Chart</button>
+
+<canvas id="myChart" style="width:100%;max-height: 300px;max-width:50%; margin:20px"></canvas>
+
+<script>
+function updateChart(){
+  var xValues = [2019,2020,2021,2022,2023];
+
+var gold2019 = document.getElementById("gold2019").value;
+var gold2020 = document.getElementById("gold2020").value;
+var gold2021 = document.getElementById("gold2021").value;
+var gold2022 = document.getElementById("gold2022").value;
+var gold2023 = document.getElementById("gold2023").value;
+
+var oil2019 = document.getElementById("oil2019").value;
+var oil2020 = document.getElementById("oil2020").value;
+var oil2021 = document.getElementById("oil2021").value;
+var oil2022 = document.getElementById("oil2022").value;
+var oil2023 = document.getElementById("oil2023").value;
+
+var gas2019 = document.getElementById("gas2019").value;
+var gas2020 = document.getElementById("gas2020").value;
+var gas2021 = document.getElementById("gas2021").value;
+var gas2022 = document.getElementById("gas2022").value;
+var gas2023 = document.getElementById("gas2023").value;
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      data: [gold2019,gold2020,gold2021,gold2022,gold2023],
+      borderColor: "red",
+      fill: false
+    }, { 
+      data: [oil2019,oil2020,oil2021,oil2022,oil2023],
+      borderColor: "green",
+      fill: false
+    }, { 
+      data: [gas2019,gas2020,gas2021,gas2022,gas2023],
+      borderColor: "blue",
+      fill: false
+    }]
+  },
+  options: {
+    legend: {display: false}
+  }
+});
+}
+</script>
